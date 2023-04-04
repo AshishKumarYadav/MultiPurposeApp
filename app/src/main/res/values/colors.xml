@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#D59513</color>
+    <!-- The color black, equivalent to 0xff000000 -->
+    <color name="red">#ffff0000</color>
+    <!-- Fully transparent, equivalent to 0x00000000 -->
+    <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="blue_grey_200">#B0BEC5</color>
+    <color name="app_color">#FF4081</color>
+    <color name="colordaynighticon">#656F78</color>
+
+    <color name="colorbgappbar">#212D3B</color>
+    <color name="colorbackground">#101519</color>
+    <color name="colorgray">#FFFFFFFF</color>
+    <color name="colorbottambar">#3B6BE3</color>
+    <color name="colorgrayview">#A3A0A0</color>
+    <color name="colorcardview">#101519</color>
+    <color name="colortexttitle">#FFFFFFFF</color>
+    <color name="colordilaog">#1D2733</color>
+    <color name="progressbar">#5D8F77</color>
+    <color name="coloricon">#97A6B4</color>
+
+    <color name="navy_blue">#0F4C75</color>
+    <color name="dark_navy_blue">#1B262C</color>
+    <color name="blue">#3282B8</color>
+    <color name="royal_blue">#002549</color>
+    <color name="deep_sky_blue">#1E90FF</color>
+    <color name="grey_white">#cccccc</color>
+    <color name="grey_black">#2c2c2c</color>
+
+    <color name="black_for_bg">#171717</color>
+    <color name="shimmer_bg_color">#dddddd</color>
+</resources>
+
