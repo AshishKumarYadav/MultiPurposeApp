@@ -13,7 +13,6 @@ import com.ashish.qrscanner.databinding.FragmentReadNewsBinding
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "URL"
-private const val ARG_PARAM2 = "param2"
 
 class ReadNewsFragment() : Fragment() {
     // TODO: Rename and change types of parameters
