@@ -1,5 +1,5 @@
 # MultiPurposeApp
-Ffeatures :-
+Features :-
 * To browse World/Local News using different filters like Sports,Entertainment,Health,Business etc.
 * App also shows Dad level jokes and can speak the same for you using Text To Speech api.
 * A QR code reader with Intent uri to browse the qr result.
