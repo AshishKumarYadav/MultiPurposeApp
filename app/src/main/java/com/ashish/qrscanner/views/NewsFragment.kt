@@ -18,6 +18,7 @@ import com.ashish.qrscanner.databinding.FragmentNewsBinding
 import com.ashish.qrscanner.utils.Cons
 import com.ashish.qrscanner.viewmodel.NewsViewModel
 import com.ashish.qrscanner.viewmodel.NewsViewModelFactory
+import com.ashish.qrscanner.views.adapters.NewsAdapter
 
 
 // api key 868b41a610b14a2c96676d1b32569287
@@ -36,8 +37,13 @@ class NewsFragment : Fragment(), View.OnClickListener {
         arguments?.let {
 
         }
+        Log.i("NewsFragment","onCreate")
+    }
+
+    override fun onResume() {
+        super.onResume()
         (activity as MainActivity).supportActionBar?.title = getString(R.string.news_fragment_title)
-        setHasOptionsMenu(true)
+        Log.i("NewsFragment","onResume")
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
@@ -71,13 +77,16 @@ class NewsFragment : Fragment(), View.OnClickListener {
         setAdapter()
     }
     private fun initiateViews(){
+
         newsViewModel = ViewModelProvider(this,NewsViewModelFactory(application = Application()))[NewsViewModel::class.java]
         Log.i("MSG_ ","NewsFragment "+1)
-        newsAdapter = NewsAdapter(requireContext(),object :NewsAdapter.onItemClickListener{
-            override fun onItemClick(url: String) {
+        newsAdapter = NewsAdapter(requireContext(),object : NewsAdapter.onItemClickListener{
+            override fun onItemClick(url: String,title: String,content:String) {
                 val newsFragment = ReadNewsFragment()
                 val args = Bundle()
                 args.putString("URL",url)
+                args.putString("title",title)
+                args.putString("content",content)
                 newsFragment.arguments = args
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container_view, newsFragment,"tagName").addToBackStack(null).commit()
             }

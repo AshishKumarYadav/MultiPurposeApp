@@ -4,9 +4,11 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ashish.qrscanner.BuildConfig
+import com.ashish.qrscanner.api.JokeModel
 import com.ashish.qrscanner.api.NewsModel
 import com.ashish.qrscanner.repository.NewsRepository
 import com.ashish.qrscanner.utils.Cons
@@ -17,11 +19,11 @@ import retrofit2.Response
 class NewsViewModel(application: Application) : AndroidViewModel(application) {
 
      val newsData: MutableLiveData<NewsModel>? = MutableLiveData()
+     val jokesData: MutableLiveData<JokeModel>? = MutableLiveData()
      private var repository: NewsRepository = NewsRepository()
 
     fun fetchNews(string:String,country:String){
-
-       val category = if (string.isNullOrEmpty()) {
+        val category = if (string.isNullOrEmpty()) {
             "general"
         } else string
 
@@ -37,7 +39,6 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
-
     private fun handleResponse(response: Response<NewsModel>):NewsModel{
         lateinit var newsModel:NewsModel
         if (response.isSuccessful) {
@@ -46,6 +47,26 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
             }
         }else Log.i("MSG_ ","view-model2 "+response.message())
         return newsModel
+    }
+
+    fun fetchJokes(string:String){
+        viewModelScope.launch(Dispatchers.IO){
+            try {
+                Log.i("MSG_ ", "view-model3 $coroutineContext")
+                val response = repository.getJokeOfDay()
+                if (response.error == false) {
+                    Log.i("MSG_ ","view-model5 "+response.jokes)
+                    jokesData?.postValue(response)
+                } else {
+
+                }
+
+            }catch (t: Throwable){
+                t.message
+                Log.i("MSG_ ","view-model4 "+t.message)
+            }
+        }
+
     }
 
 }

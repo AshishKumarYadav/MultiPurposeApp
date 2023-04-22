@@ -3,6 +3,7 @@ package com.ashish.qrscanner
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,6 +24,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.ashish.qrscanner.databinding.ActivityMainBinding
+import com.ashish.qrscanner.views.JokeFragment
 import com.ashish.qrscanner.views.NewsFragment
 import com.ashish.qrscanner.views.ScannerFragment
 import com.google.android.material.snackbar.Snackbar
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
+        supportActionBar?.title   = getString(R.string.app_name)
         Log.d("MainActivity: ", "onResume Called "+supportFragmentManager.backStackEntryCount)
     }
 
@@ -69,6 +72,13 @@ class MainActivity : AppCompatActivity(){
         binding.newsBtn.setOnClickListener {
             goToNewsFragment()
         }
+        binding.jokeBtn.setOnClickListener {
+            goToJokesFragment()
+        }
+    }
+    fun goToJokesFragment() {
+        val yourFragment = JokeFragment()
+        replaceFragment(yourFragment,"JOKES_FRAGMENT")
     }
     private fun goToScannerFragment(){
         val yourFragment = ScannerFragment()
@@ -185,9 +195,9 @@ class MainActivity : AppCompatActivity(){
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        supportActionBar?.title   = getString(R.string.app_name)
         if (supportFragmentManager.backStackEntryCount==0) {
             binding.mainView.visibility = View.VISIBLE
+            supportActionBar?.title   = getString(R.string.app_name)
         }
         Log.d("MainActivity: ", "onBackPressed Called")
     }
