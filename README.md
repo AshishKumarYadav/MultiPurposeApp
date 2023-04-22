@@ -1,4 +1,4 @@
-# MultiPurposeApp
+# Versatile - A Multi-Purpose App
 Features :-
 * To browse World/Local News using different filters like Sports,Entertainment,Health,Business etc.
 * App also shows Dad level jokes and can speak the same for you using Text To Speech api.
