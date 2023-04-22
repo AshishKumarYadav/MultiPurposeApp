@@ -4,10 +4,16 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.util.Log
 
 object Cons {
+    //https://newsapi.org/
+     var BASE_URL:String = "https://newsapi.org/"
+    fun changeBaseURL(stringUrl: String) {
+        BASE_URL = stringUrl
+        Log.i("MSG_ ","Cons "+ BASE_URL)
+    }
 
-    const val BASE_URL ="https://newsapi.org/"
 
     // Check internet connection
      fun isNetworkAvailable(context: Context): Boolean {

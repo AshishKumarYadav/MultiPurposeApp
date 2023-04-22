@@ -3,11 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.ReadNewsFragment">
 
    <WebView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/webView"/>
+
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:backgroundTint="@color/white"
+       android:labelFor="@id/jokes_recycler_view"
+       android:layout_gravity="bottom|end"
+       android:layout_marginEnd="20dp"
+       android:layout_marginBottom="20dp"
+       android:elevation="20dp"
+       android:drawingCacheQuality="high"
+       android:src="@drawable/baseline_play"
+       app:maxImageSize="50dp"
+       android:id="@+id/fab"
+       />
+
 
 </FrameLayout>
