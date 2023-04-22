@@ -72,8 +72,6 @@ class NewsAdapter(private val context: Context,var itemClickListener: onItemClic
             }
 
         }
-
-
     }
 
     interface onItemClickListener{
